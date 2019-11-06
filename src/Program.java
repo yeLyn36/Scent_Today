@@ -126,17 +126,20 @@ public class Program {
         new infoScent();
         frame.dispose();
     }
-
+    //향수의 정보 클래스 이동
+    //첫 창 종료
     public void startSurvey(){
         new SurveyScent();
         frame.dispose();
     }
-
+    //오늘 당신의 향수 클래스 이동
+    //첫 창 종료
     public void showWantedList(){
         new WantedScent();
         frame.dispose();
     }
-
+    //당신의 향수 리스트 목록 클래스 이동
+    //첫 창 종료
     public static void main(String[] args) {
         new Program();
     }

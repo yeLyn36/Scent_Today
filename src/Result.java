@@ -34,8 +34,9 @@ public class Result {
         table.setRowHeight(100);
         table.setShowGrid(true);
         table.setBounds(50, 500, 900, table.getRowCount()*100);
-        table.getColumnModel().getColumn(5).setCellRenderer(new TableCell());;
-        table.getColumnModel().getColumn(5).setCellEditor(new TableCell());;
+        table.getColumnModel().getColumn(5).setCellRenderer(new TableCell());
+        table.getColumnModel().getColumn(5).setCellEditor(new TableCell());
+        //  Table 생성, 테이블 내 버튼 생성
 
         frame = new JFrame("Result");
         panel = new JPanel();
@@ -48,6 +49,7 @@ public class Result {
         size.setSize(1000, table.getRowCount()*200);
         panel.setPreferredSize(size);
         scroll.setViewportView(panel);
+        //스크롤 생성
 
         JLabel titleLb = new JLabel("<html>오늘 당신의 향은 <b>" + scents + "</b>향입니다.");
         titleLb.setFont(Program.nanumMyengjo);
@@ -99,7 +101,7 @@ public class Result {
         }
 
     }
-
+    // Result 창에 들어왔을 때 만들어지는 생성자, 선택된 값들을 배열로 가져와서 JTable 객체를 이용하여 테이블을 생성하여 보여준다.
     private JTable checkScent(String[] selected) {
 
         String[] scentName = {"플로랄", "프루티", "애니멀릭", "아쿠아", "파우더리", "구르망", "우디"};
@@ -269,7 +271,8 @@ public class Result {
         JTable table = selectList(scents, kind);
         return table;
     }
-
+    // 선택된 값들을 보고 어느 향, 어느 지속시간 정도에 가장 잘 어울리는지 판단해주는 메서드
+    // 향 이름 배열, 지속시간 배열을 생성하여 가장 잘 어울리는 향과 지속시간에 수를 더해주고 그 값을 통해 데이터를 가져온다.
     public void connectDB() {
         try {
             Class.forName("org.sqlite.JDBC");
@@ -286,7 +289,8 @@ public class Result {
             System.out.println("드라이버 로딩 오류");
         }
     }
-
+    // 데이터 베이스 (sqlite -> tblScent) 연결
+    // 테이블이 없을 경우 생성
     public void saveList(String name, String scent, String kinds, String info, String site) {
         String row = name + "\t" + scent + "\t" + kinds + "\t" + info + "\t" + site + "\n";
         try {
@@ -299,7 +303,9 @@ public class Result {
             e.printStackTrace();
         }
     }
-
+    // 저장하려는 항목의 값들을 받아 list.txt에 저장함
+    // OutputStream을 이용하여 메모 파일에 작성
+    // **** 스트림 꼭 닫아주기 ****
     public JTable selectList(String scents, String kind) {
         JTable table;
         sql = "select * from tblScent where scent = \"" + scents + "\"";
@@ -332,7 +338,8 @@ public class Result {
         }
         return null;
     }
-
+    // 나에게 가장 잘 어울리는 향과 지속시간을 받아와서 테이블에서 검색 후 해당 항목 리스트를 받아오는 메서드
+    // JTable 객체를 통해 해당 리스트를을 Table을 만들어 반환함
     class TableCell extends AbstractCellEditor implements TableCellEditor, TableCellRenderer {
 
         JButton jb;
@@ -372,6 +379,7 @@ public class Result {
         }
 
     }
-
+    // 테이블 내에 버튼을 추가
+    // 버튼을 누르면 추가했다는 알림창이 생성됨
 }
 

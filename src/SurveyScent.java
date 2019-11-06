@@ -25,6 +25,7 @@ public class SurveyScent {
     JRadioButton often[] = {new JRadioButton("하루에 1번"), new JRadioButton("하루에 3번 이상"),
             new JRadioButton("하루에 5번 이상"), new JRadioButton("일주일에 1번"),
             new JRadioButton("잘 안 뿌림")};
+    // 설문 라디오 버튼들
 
     public SurveyScent(){
         frame = new JFrame("InfoScent");
@@ -137,6 +138,7 @@ public class SurveyScent {
         panel.add(quest1);
         panel.add(moodPn);
     }
+    // 분위기에 대한 설문 Panel생성
     public void makePersonPn(){
         JPanel personPn = new JPanel();
         personPn.setLayout(new FlowLayout());
@@ -156,6 +158,7 @@ public class SurveyScent {
         panel.add(quest2);
         panel.add(personPn);
     }
+    // 사람에 대한 설문 Panel생성
     public void makeTodoPn(){
         JPanel todoPn = new JPanel();
         todoPn.setLayout(new FlowLayout());
@@ -176,6 +179,7 @@ public class SurveyScent {
         panel.add(quest3);
         panel.add(todoPn);
     }
+    // 할 일에 대한 설문 Panel생성
     public void makeFassionPn(){
         JPanel fassionPn = new JPanel();
         fassionPn.setLayout(new FlowLayout());
@@ -195,6 +199,7 @@ public class SurveyScent {
         panel.add(quest4);
         panel.add(fassionPn);
     }
+    // 오늘 패션에 대한 설문 Panel생성
     public void makeWantMoodPn(){
         JPanel wantMoodPn = new JPanel();
         wantMoodPn.setLayout(new FlowLayout());
@@ -214,6 +219,7 @@ public class SurveyScent {
         panel.add(quest5);
         panel.add(wantMoodPn);
     }
+    // 원하는 분위기에 대한 설문 Panel생성
     public void makeOftenPn(){
         JPanel oftenPn = new JPanel();
         oftenPn.setLayout(new FlowLayout());
@@ -233,6 +239,7 @@ public class SurveyScent {
         panel.add(quest6);
         panel.add(oftenPn);
     }
+    // 뿌리는 정도에 대한 설문 Panel생성
     public String getResult(JRadioButton[] radios){
         for(int i = 0; i < radios.length; i++){
             if (radios[i].isSelected()){
@@ -241,6 +248,7 @@ public class SurveyScent {
         }
         return null;
     }
+    // 위 라디오 항목들을 가져와서 어떤 항목이 선택되었는지 반환함
     public void initSelected(JRadioButton[] radios){
         for(int i = 0; i < radios.length; i++){
             if(radios[i].isSelected()) {
@@ -248,8 +256,5 @@ public class SurveyScent {
             }
         }
     }
-
-    public static void main(String[] args) {
-        new SurveyScent();
-    }
+    // 선택된 버튼들 초기화
 }

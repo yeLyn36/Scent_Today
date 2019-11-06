@@ -90,10 +90,11 @@ public class WantedScent {
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
+    //향수 리스트 항목을 메모장 파일에서 가져와서 JTable 객체를 이용하여 Table 생성
 
     public void showTxt() throws IOException {
         Desktop.getDesktop().edit(new File("src/list.txt"));
-    }
+    } // 메모장 실행해서 파일 열기
 
     public JTable selectList(){
         FileReader fr;
@@ -107,8 +108,7 @@ public class WantedScent {
             while((tmpStr = br.readLine()) != null) {
                 csvStr += tmpStr + "\t";
             }
-            //System.out.println(csvStr);
-            //token으로 나누어 저장하기
+            // 파일에서 값을 가져와서 모두 합친 후 tap 키를 기준으로 합함.
             StringTokenizer parse = new StringTokenizer(csvStr, "\t");
             int length = parse.countTokens() / 6;
             String[] colsName = {"이름", "향기", "지속시간", "정보", "주소"};
@@ -123,17 +123,16 @@ public class WantedScent {
                     }
                 }
             }
-
+            //나눈 값으로 Table 생성할 배열들 생성
             arrayCount = arrayCount/5 + arrayCount%5;
-
-            System.out.println(arrayCount);
+            //항목수 구하기
             Object[][] rowData = new Object[arrayCount][5];
             for(int i = 0; i < arrayCount; i++) {
                 for(int j = 0; j < rowData[i].length; j++){
                     rowData[i][j] = data[i][j];
                 }
             }
-
+            //테이블 생성 후 반환
             JTable table = new JTable(rowData, colsName);
             return table;
         } catch (FileNotFoundException e) {
@@ -145,5 +144,6 @@ public class WantedScent {
             e.printStackTrace();
         }
         return null;
+        //아니면 null 반환, 표시되는 테이블 없음
     }
 }

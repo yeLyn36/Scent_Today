@@ -2,7 +2,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-
+// 향수에 대한 간단한 소개를 작성한 클래스
+// Only Label
 public class infoScent {
     static JFrame frame;
     JPanel panel;
