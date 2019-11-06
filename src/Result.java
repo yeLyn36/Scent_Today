@@ -333,7 +333,7 @@ public class Result {
         JButton jb;
 
         public TableCell() {
-            ImageIcon btnImg = new ImageIcon("img/addList.png");
+            ImageIcon btnImg = new ImageIcon("src/img/addList.png");
             jb = new JButton(btnImg);
 
             jb.addActionListener(e -> {
