@@ -40,7 +40,7 @@ public class WantedScent {
         titleLb.setFont(Program.nanumMyengjo);
         titleLb.setBounds(100, 120, 1000, 200);
 
-        ImageIcon showListImg = new ImageIcon("src/img/listBtn.png");
+        ImageIcon showListImg = new ImageIcon("src/img/showTxt.png");
         JButton ListBtn = new JButton(showListImg);
         ListBtn.setCursor(new Cursor(Cursor.HAND_CURSOR));
         ListBtn.setOpaque(false);

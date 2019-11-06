@@ -53,9 +53,12 @@ public class Result {
         titleLb.setFont(Program.nanumMyengjo);
         titleLb.setBounds(100, 150, 1000, 200);
         JLabel subtitleLb = new JLabel("<html>당신에겐 " +
-                "<b>" + kind + "</b>를 추천합니다.");
+                "<b>" + kind + "</b>를 추천합니다.</html>");
         subtitleLb.setFont(new Font("NanumMyeongjo", Font.BOLD, 30));
         subtitleLb.setBounds(100, 200, 1000, 200);
+        JLabel helpLb = new JLabel("아래 향수 목록 옆 버튼을 누르면 당신의 향수 리스트에 항목을 추가할 수 있어요 !");
+        helpLb.setFont(Program.nanumGodic);
+        helpLb.setBounds(110, 230, 1000, 200);
 
         ImageIcon backImg = new ImageIcon("src/img/house.png");
         Image chImg = backImg.getImage();
@@ -78,6 +81,7 @@ public class Result {
         panel.add(table);
         panel.add(titleLb);
         panel.add(subtitleLb);
+        panel.add(helpLb);
         panel.add(backHome);
         frame.add(scroll);
         frame.setPreferredSize(new Dimension(1000, 800));
@@ -312,6 +316,7 @@ public class Result {
                     data[i][2] = rs.getString("kinds");
                     data[i][3] = rs.getString("info");
                     data[i][4] = rs.getString("site");
+                    System.out.println(data[i][4]);
                     i++;
                 }
             }
@@ -337,6 +342,7 @@ public class Result {
             jb = new JButton(btnImg);
 
             jb.addActionListener(e -> {
+                JOptionPane.showMessageDialog(null, "당신의 향수 리스트에 추가되었습니다.");
                 String name = String.valueOf(table.getValueAt(table.getSelectedRow(), 0));
                 String scent = String.valueOf(table.getValueAt(table.getSelectedRow(), 1));
                 String kind = String.valueOf(table.getValueAt(table.getSelectedRow(), 2));

@@ -41,6 +41,9 @@ public class SurveyScent {
         JLabel titleLb = new JLabel("오늘의 향수는 무엇인가요 ?");
         titleLb.setFont(Program.nanumMyengjo);
         titleLb.setBounds(200, 150, 900, 70);
+        JLabel helpLb = new JLabel("아래 6개의 설문을 마친 후 결과 버튼을 눌러주세요 :)");
+        helpLb.setFont(Program.nanumGodic);
+        helpLb.setBounds(210, 200, 900, 70);
 
         makeMoodPn();
         makePersonPn();
@@ -101,6 +104,7 @@ public class SurveyScent {
         });
 
         panel.add(titleLb);
+        panel.add(helpLb);
         panel.add(resultBtn);
         panel.add(backHome);
         frame.add(scroll);
